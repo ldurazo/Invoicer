@@ -81,7 +81,7 @@ def _build_invoice_information():
 
     # Row 5
     invoice_info.add(Paragraph(BILLED_BY_EMAIL))
-    invoice_info.add(Paragraph(BILLED_TO_ADDRESS_LINE_2))
+    invoice_info.add(Paragraph(BILLED_TO_ADDRESS_LINE_4))
 
     invoice_info.set_padding_on_all_cells(
         Decimal(2), Decimal(2), Decimal(2), Decimal(2))
