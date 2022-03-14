@@ -14,6 +14,14 @@ pip3 install -r requirements.txt
 
 Copy the contents of `configuration.example.py` into a file named `configuration.py`
 
+Change values to your heart's content. Be aware that start and end dates do not count weekends, and the configuration is inclusive of start but not end.
+
+e.g. the following configuration will calculate all business days up to March 15, without counting March 16.
+```
+INVOICE_START_DATE = datetime(2022, 3, 1)
+INVOICE_END_DATE = datetime(2022, 3, 16)
+```
+
 Run with
 ```
 python3 main.py
