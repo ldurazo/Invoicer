@@ -15,6 +15,8 @@ BILLED_TO_ADDRESS_LINE_3 = "Scranton, PA 94129"
 BILLED_TO_ADDRESS_LINE_4 = "United States"
 
 INVOICE_ITEMS_HEADERS = ["DESCRIPTION", "HOURS", "RATE", "AMOUNT"]
+# Not configurable at the moment, used to calculate working hours, items in the tuple represent in order:
+# Description, hourly rate, date start, date end. amount of hours and totals are calculated.
 INVOICE_ITEMS = [
     ("Assistant to the regional manager", 10,
      datetime(2020, 1, 1), datetime(2020, 1, 31))

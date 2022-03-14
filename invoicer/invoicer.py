@@ -125,13 +125,15 @@ def _build_invoice_items():
             TableCell(Paragraph(invoice_item_total), background_color=c))
 
     # Some empty rows to have a fixed number of rows for styling purposes
-    for row_number in range(3, 5):  
-        c = even_color if row_number % 2 == 0 else odd_color  
-        for _ in range(0, 4):  
-            invoice_items.add(TableCell(Paragraph(" "), background_color=c))  
+    for row_number in range(3, 5):
+        c = even_color if row_number % 2 == 0 else odd_color
+        for _ in range(0, 4):
+            invoice_items.add(TableCell(Paragraph(" "), background_color=c))
 
-    invoice_items.add(TableCell(Paragraph("Total", font="Helvetica-Bold", horizontal_alignment=Alignment.RIGHT  ), col_span=3,)) 
-    invoice_items.add(TableCell(Paragraph("${}".format(invoice_total), horizontal_alignment=Alignment.RIGHT)))  
+    invoice_items.add(TableCell(Paragraph("Total", font="Helvetica-Bold",
+                      horizontal_alignment=Alignment.RIGHT), col_span=3,))
+    invoice_items.add(TableCell(Paragraph("${}".format(
+        invoice_total), horizontal_alignment=Alignment.RIGHT)))
 
     invoice_items.set_padding_on_all_cells(
         Decimal(2), Decimal(2), Decimal(2), Decimal(2))
