@@ -1,4 +1,4 @@
-This is a personal tool to automate the process of invoice making. Software comes with no guarantees of any kind.
+This is a personal tool to automate the process of invoice making.
 
 ### Installation guide:
 
