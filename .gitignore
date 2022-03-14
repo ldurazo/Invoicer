@@ -2,6 +2,7 @@
 .DS_STORE
 out/**
 out/*
+configuration.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
