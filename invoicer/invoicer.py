@@ -108,8 +108,8 @@ def _build_invoice_items():
 
         invoice_item_description = "{} {} - {}".format(
             item[0], item[2].strftime("%m/%d/%Y"), item[3].strftime("%m/%d/%Y"))
-        invoice_item_hours = np.busday_count(
-            item[2].date(), item[3].date()) * WORKING_HOURS
+        invoice_item_hours = (np.busday_count(
+            item[2].date(), item[3].date()) + 1) * WORKING_HOURS
         invoice_item_total_number = round(item[1] * invoice_item_hours, 2)
         invoice_item_total = "$" + str(invoice_item_total_number)
         invoice_total += invoice_item_total_number
