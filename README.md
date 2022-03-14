@@ -20,3 +20,6 @@ python3 main.py
 ```
 
 PDF should be inside a directory called `out`
+
+
+![Screen Shot 2022-03-14 at 12 22 59](https://user-images.githubusercontent.com/7563640/158246130-4fc33967-c4dc-4076-a4cf-ea7f2e26cf4b.png)
