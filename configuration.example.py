@@ -2,8 +2,10 @@ from datetime import datetime
 
 # Periodically modifiable fields
 INVOICE_ID = "000X"
+# Calculations are inclusive of this value
 INVOICE_START_DATE = datetime(2020, 1, 1)
-INVOICE_END_DATE = datetime(2020, 1, 31)
+# Calculations are exclusive of this value
+INVOICE_END_DATE = datetime(2020, 2, 1)
 
 # Fixed fields
 BILLED_BY = "Carl Johnson"

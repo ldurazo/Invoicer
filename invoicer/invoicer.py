@@ -1,4 +1,5 @@
 from numbers import Number
+from datetime import timedelta
 import numpy as np
 import functools
 from borb.pdf.document import document
@@ -107,7 +108,7 @@ def _build_invoice_items():
         c = even_color if row_number % 2 == 0 else odd_color
 
         invoice_item_description = "{} {} - {}".format(
-            item[0], item[2].strftime("%m/%d/%Y"), item[3].strftime("%m/%d/%Y"))
+            item[0], item[2].strftime("%m/%d/%Y"), (item[3] + timedelta(days=-1)).strftime("%m/%d/%Y"))
         invoice_item_hours = np.busday_count(
             item[2].date(), item[3].date()) * WORKING_HOURS
         invoice_item_total_number = round(item[1] * invoice_item_hours, 2)
