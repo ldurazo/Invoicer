@@ -107,13 +107,10 @@ def _build_invoice_items():
     for row_number, item in enumerate(INVOICE_ITEMS):
         c = even_color if row_number % 2 == 0 else odd_color
 
-        invoice_item_description = "{} {} - {}".format(
-            item[0], item[2].strftime("%m/%d/%Y"), (item[3] + timedelta(days=-1)).strftime("%m/%d/%Y"))
-        invoice_item_hours = np.busday_count(
-            item[2].date(), item[3].date()) * WORKING_HOURS
-        invoice_item_total_number = round(item[1] * invoice_item_hours, 2)
-        invoice_item_total = "$" + str(invoice_item_total_number)
-        invoice_total += invoice_item_total_number
+        invoice_item_description = _build_item_description(item)
+        invoice_item_hours = _build_item_hours(item)
+        invoice_item_total = _build_item_total(item, invoice_item_hours)
+        invoice_total += invoice_item_total
         invoice_rate = str(item[1])
 
         invoice_items.add(
@@ -123,7 +120,7 @@ def _build_invoice_items():
         invoice_items.add(
             TableCell(Paragraph(invoice_rate), background_color=c))
         invoice_items.add(
-            TableCell(Paragraph(invoice_item_total), background_color=c))
+            TableCell(Paragraph("$" + str(invoice_item_total)), background_color=c))
 
     # Some empty rows to have a fixed number of rows for styling purposes
     for row_number in range(3, 5):
@@ -140,6 +137,20 @@ def _build_invoice_items():
         Decimal(2), Decimal(2), Decimal(2), Decimal(2))
     invoice_items.no_borders()
     return invoice_items
+
+
+def _build_item_description(item):
+    return "{} {} - {}".format(
+        item[0], item[2].strftime("%m/%d/%Y"), (item[3] + timedelta(days=-1)).strftime("%m/%d/%Y"))
+
+
+def _build_item_total(item, invoice_item_hours):
+    return round(item[1] * invoice_item_hours, 2)
+
+
+def _build_item_hours(item):
+    return np.busday_count(
+        item[2].date(), item[3].date()) * WORKING_HOURS
 
 
 if __name__ == "__main__":
