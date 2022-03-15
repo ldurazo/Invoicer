@@ -141,7 +141,7 @@ def _build_invoice_items():
 
 def _build_item_description(item):
     return "{} {} - {}".format(
-        item[0], item[2].strftime("%m/%d/%Y"), (item[3] + timedelta(days=-1)).strftime("%m/%d/%Y"))
+        item[0], item[2], (datetime.strptime(item[3], "%Y/%m/%d") + timedelta(days=-1)).strftime("%m/%d/%Y"))
 
 
 def _build_item_total(item, invoice_item_hours):
@@ -150,7 +150,7 @@ def _build_item_total(item, invoice_item_hours):
 
 def _build_item_hours(item):
     return np.busday_count(
-        item[2].date(), item[3].date()) * WORKING_HOURS
+        datetime.strptime(item[2], "%Y/%m/%d").date(), datetime.strptime(item[3], "%Y/%m/%d").date()) * WORKING_HOURS
 
 
 if __name__ == "__main__":
