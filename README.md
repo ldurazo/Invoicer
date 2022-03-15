@@ -18,8 +18,8 @@ Change values to your heart's content. Be aware that start and end dates do not 
 
 e.g. the following configuration will calculate all business days up to March 15, without counting March 16.
 ```
-INVOICE_START_DATE = "2000/3/1"
-INVOICE_END_DATE = "2000/3/16"
+INVOICE_START_DATE = "2020/3/1"
+INVOICE_END_DATE = "2020/3/16"
 ```
 
 Run with
