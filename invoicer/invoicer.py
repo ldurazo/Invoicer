@@ -141,7 +141,7 @@ def _build_invoice_items():
 
 def _build_item_description(item):
     return "{} {} - {}".format(
-        item[0], item[2], (datetime.strptime(item[3], "%Y/%m/%d") + timedelta(days=-1)).strftime("%m/%d/%Y"))
+        item[0], item[2], (datetime.strptime(item[3], "%Y/%m/%d") + timedelta(days=-1)).strftime("%Y/%m/%d"))
 
 
 def _build_item_total(item, invoice_item_hours):
